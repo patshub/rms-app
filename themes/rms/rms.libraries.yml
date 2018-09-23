@@ -1,0 +1,42 @@
+global-styling-1:
+  version: 1.x
+  css:
+    theme:
+      _assets/css/reset.css: {}
+  dependencies:
+    - core/jquery
+global-styling-2:
+  version: 1.x
+  css:
+    theme:
+      _assets/css/base.css: {}
+  js:
+    _assets/js/script.js: {}
+  dependencies:
+    - core/jquery
+global-styling-3:
+  version: 1.x
+  css:
+    theme:
+      _assets/css/responsive.css: {}
+  dependencies:
+    - core/jquery
+
+font-awesome:
+  remote: https://fortawesome.github.io/Font-Awesome/
+  version: 4.7.0
+  license:
+    name: MIT
+    url: https://fortawesome.github.io/Font-Awesome/license/
+    gpl-compatible: true
+  js:
+    https://use.fontawesome.com/6450c1c1ed.js: { type: external, minified: true }
+unslider:
+  version: 4.0
+  css:
+    theme:
+      _assets/js/bxslider-4-4.2.12/src/css/jquery.bxslider.css: {}
+  js:
+    _assets/js/bxslider-4-4.2.12/src/js/jquery.bxslider.js: {}
+  dependencies:
+    - core/jquery

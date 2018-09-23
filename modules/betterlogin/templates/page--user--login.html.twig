@@ -1,0 +1,17 @@
+<div id="user-login">
+    <h3 class="title">{{ site_name }}</h3>
+    {{ messages }}
+    {{ page.content }}
+
+    <div class="bottom_part">
+      <div class="password_link">
+        <a href="{{ path('user.pass') }}">{{ 'Forgot your password?'|t }}</a>
+      </div>
+      <div class="register_link">
+        <a href="{{ path('user.register') }}">{{ 'Register a new account'|t }}</a>
+      </div>
+      <div class="back_link">
+        <a href="{{ url('<front>') }}">&larr; {{ 'Back'|t }} {{ site_name }}</a>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<script>
+  // jQuery( document ).ready(function() {
+  //   jQuery('ul.menu').prepend('<li class="home-link"><a href="insurance" class="active"><img class="icon" src="../{{ directory }}/_assets/images/icon-home-color.svg"/></a></li>');
+  // });
+</script>
+<header>
+  <div class="container">
+    <!-- <div class="site-headline">
+      <a href="{{ path('<front>') }}insurance">
+        <h3>St. Anthony Insurance & Solutions</h3>
+        <h1>Records Management System</h1>
+      </a>
+    </div> -->
+    <ul class="menu">
+      <li class="home-link"><a href="{{ path('<front>') }}insurance"><img class="icon" src="{{ theme_path }}/_assets/images/icon-home-color.svg"/></a></li>
+      <li><a href="#" id="menu-link-health" name="Health">Health<span>Insurance</span></a></li>
+      <li><a href="#" id="menu-link-life" name="Life">Life<span>Insurance</span></a></li>
+      <li><a href="#" id="menu-link-annuity" name="Annuity">Annuity <span>Plan</span></a></li>
+      <li><a target="_blank" href="https://apply.coveredca.com/static/lw-web/login?resource_url=https%3A%2F%2Fapply.coveredca.com%2Fapspahbx%2Fahbx.portal">Covered<span>California</span></a></li>
+      <li><a href="{{ path('<front>') }}/user/logout"><strong>Logout</strong></a></li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+</header>

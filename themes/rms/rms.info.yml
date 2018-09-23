@@ -1,0 +1,20 @@
+name: 'RMS'
+type: theme
+description: 'Custom theme for RMS'
+core: 8.x
+regions:
+  status: 'Status Messages'
+  footer: 'Footer'
+  nav: 'Main Navigation'
+  search: 'Search'
+  breadcrumbs: 'Breadcrumbs'
+  sidebar: 'Sidebar'
+  tabs: 'Admin Tabs'
+  disabled: 'Disabled'
+libraries:
+  - rms/global-styling-1
+  - rms/global-styling-2
+  - rms/global-styling-3
+  - rms/font-awesome
+  - rms/unslider
+  - rms/tweetie

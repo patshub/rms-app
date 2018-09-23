@@ -1,0 +1,24 @@
+<svg id="settings" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.449 32.055">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Group_519" data-name="Group 519" transform="translate(0 22.299)">
+    <g id="Group_518" data-name="Group 518">
+      <path id="Path_78" data-name="Path 78" class="cls-1" d="M32.055,355.484H28.344a4.846,4.846,0,0,0-9.3,0H1.394a1.394,1.394,0,0,0,0,2.787H19.042a4.846,4.846,0,0,0,9.3,0h3.711a1.394,1.394,0,0,0,0-2.787Zm-8.362,3.484a2.091,2.091,0,1,1,2.091-2.091A2.093,2.093,0,0,1,23.693,358.969Z" transform="translate(0 -352)"/>
+    </g>
+  </g>
+  <g id="Group_521" data-name="Group 521" transform="translate(0 0)">
+    <g id="Group_520" data-name="Group 520">
+      <path id="Path_79" data-name="Path 79" class="cls-1" d="M32.055,14.151H28.344a4.846,4.846,0,0,0-9.3,0H1.394a1.394,1.394,0,0,0,0,2.787H19.042a4.846,4.846,0,0,0,9.3,0h3.711a1.394,1.394,0,0,0,0-2.787Zm-8.362,3.484a2.091,2.091,0,1,1,2.091-2.091A2.093,2.093,0,0,1,23.693,17.635Z" transform="translate(0 -10.667)"/>
+    </g>
+  </g>
+  <g id="Group_523" data-name="Group 523" transform="translate(0 11.15)">
+    <g id="Group_522" data-name="Group 522">
+      <path id="Path_80" data-name="Path 80" class="cls-1" d="M32.055,184.818H14.407a4.846,4.846,0,0,0-9.3,0H1.394a1.394,1.394,0,0,0,0,2.787H5.105a4.846,4.846,0,0,0,9.3,0H32.055a1.394,1.394,0,0,0,0-2.787ZM9.756,188.3a2.091,2.091,0,1,1,2.091-2.091A2.093,2.093,0,0,1,9.756,188.3Z" transform="translate(0 -181.334)"/>
+    </g>
+  </g>
+</svg>

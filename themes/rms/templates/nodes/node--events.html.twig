@@ -1,0 +1,59 @@
+<div class="event-item">
+	<div class="event-date">
+		<div class="month">{{ node.field_event_date.value|date('M') }}</div>
+		<div class="day">{{ node.field_event_date.value|date('j') }}</div>
+	</div>
+	<h1>
+		{{ node.label }}
+		<p class="meta">{% if content.field_event_category|render %}Category: {{ content.field_event_category.0 }} {% endif %}</p>
+	</h1>
+</div>
+<img class="headline-separator" src="/themes/tahoe/_assets/images/headline-separator.svg"/>
+<div class="col-8 left main-content">
+
+	{% if content.field_event_date|render or content.field_event_date_end|render %}
+	<p><strong>Date: </strong>{{ content.field_event_date.0 }} {% if content.field_event_date_end|render %}- {{ content.field_event_date_end.0 }}{% endif %}</p>
+	{% endif %}
+
+	{% if content.field_location_name|render or
+		content.field_street_address|render or
+		content.field_city|render or
+		content.field_state|render or
+		content.field_zip_code|render %}
+	<p><strong>Location:</strong> {{ content.field_location_name.0 }}
+
+	{% if content.field_street_address|render or
+		content.field_city|render or
+		content.field_state|render or
+		content.field_zip_code|render
+	 %} -
+
+		{% if content.field_street_address|render %}
+			{{ content.field_street_address.0 }}
+		{% endif %}
+		{% if content.field_city|render %}
+			{{ content.field_city.0 }}
+		{% endif %}
+		{% if content.field_state|render %}
+			{{ content.field_state.0 }}
+		{% endif %}
+		{% if content.field_zip_code|render %}
+			{{ content.field_zip_code.0 }}
+		{% endif %}
+	{% endif %}
+
+	</p>
+	{% endif %}
+
+	{% if content.field_price|render %}
+	<p><strong>Price:</strong> ${{ content.field_price.0 }}</p>
+	{% endif %}
+
+		{{ content.body }}
+	<br/>
+	{% if content.field_image|render %}
+	<img class="field_image" src="{{ content.field_image.0 }}"/>
+	{% endif %}
+</div>
+
+{% include '@tahoe/partials/node_sidebar.html.twig' %}

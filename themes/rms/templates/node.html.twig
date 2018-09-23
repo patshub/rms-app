@@ -1,0 +1,662 @@
+
+<section class="print-heading">
+  <div class="container">
+    <div class="print-title">
+      <h2>{{ content.field_first_name.0 }} {{ content.field_middle_name.0 }} {{ content.field_last_name.0 }}</h2>
+      <p id="date"></p>
+    </div>
+
+    <div class="print-options">
+      <button class="btn third cancel">Done</button>
+      <button class="btn print">Print</button>
+    </div>
+  </div>
+</section>
+
+<div class="page-heading">
+  <div class="container">
+    <div class="profile-title">
+      <span>Member ID: #{{ node.id }}</span>
+      <h1>{{ content.field_first_name.0 }} {{ content.field_middle_name.0 }} {{ content.field_last_name.0 }}</h1>
+    </div>
+    <div class="profile-settings">
+      <a href="{{ url('<current>') }}/edit" class="btn edit-btn with-icon">
+        <img class="icon" src="{{ theme_path }}/_assets/images/icon-edit.svg"/>
+      </a>
+      <div id="print-preview-btn" class="btn single-print-btn with-icon">
+        <img class="icon" src="{{ theme_path }}/_assets/images/icon-printer-white.svg"/>
+      </div>
+      <div class="btn trash-btn with-icon">
+        <a href="{{ url('<current>') }}/delete">
+          <img class="icon" src="{{ theme_path }}/_assets/images/icon-trash.svg"/>
+        </a>
+      </div>
+    </div>
+
+    <div class="tab-menu">
+      <div class="item back-btn"></div>
+      <div class="item active" tab-id="tab1">Client Information</div>
+
+      {% if 'Health' in content.field_insurance_type[0] or 'Health' in content.field_insurance_type[1] or 'Health' in content.field_insurance_type[2] %}
+      <div class="item" tab-id="tab2">Health Insurance</div>
+      {% endif %}
+
+      {% if 'Life' in content.field_insurance_type[0] or 'Life' in content.field_insurance_type[1] or 'Life' in content.field_insurance_type[2] %}
+      <div class="item" tab-id="tab3">Life Insurance</div>
+      {% endif %}
+
+      {% if 'Annuity' in content.field_insurance_type[0] or 'Annuity' in content.field_insurance_type[1] or 'Annuity' in content.field_insurance_type[2] %}
+      <div class="item" tab-id="tab4">Annuity Plan</div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div>
+  <div class="container">
+    <div id="profile-block">
+
+      <div class="tab-body">
+
+        <div id="tab1" class="active tab-item">
+          <h2 class="tab-title">Client Information</h2>
+          <div class="col-6">
+            <div class="col">
+              <div class="info-set">
+                <h3>Identification</h3>
+                <div class="info-set-item">
+                  <p>First Name</p>
+                  <p><strong>{{ content.field_first_name.0 }}</strong></p>
+                </div>
+                <div class="info-set-item">
+                  <p>Last Name</p>
+                  <p><strong>{{ content.field_last_name.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Middle Name</p>
+                  <p><strong>{{ content.field_middle_name.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Date of Birth</p>
+                  <p><strong>{{ content.field_date_of_birth.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Gender</p>
+                  <p><strong>{{ content.field_gender.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Immigration Status</p>
+                  <p><strong>{{ content.field_immigration_status.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Nationality</p>
+                  <p><strong>{{ content.field_nationality.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>1st Language</p>
+                  <p><strong>{{ content.field_1st_language.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>2nd Language</p>
+                  <p><strong>{{ content.field_2nd_language.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Social Security Number</p>
+                  <p><strong>{{ content.field_social_security_number.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Medicare Number</p>
+                  <p><strong>{{ content.field_medicare_number.0 }}</strong></p>
+                </div>
+
+              </div>
+
+              <div class="info-set">
+                <h3>Household</h3>
+
+                <div class="info-set-item">
+                  <p>Marital Status</p>
+                  <p><strong>{{ content.field_marital_status.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Spouse/Partner Name</p>
+                  <p><strong>{{ content.field_partner_name.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Spouse/Partner DOB</p>
+                  <p><strong>{{ content.field_partner_dob.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Family Members</p>
+                  <p><strong>{{ content.field_family_members.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Contact Name</p>
+                  <p><strong>{{ content.field_contact_name.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Relationship to Member</p>
+                  <p><strong>{{ content.field_relationship_to_member.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Referred By</p>
+                  <p><strong>{{ content.field_referred_by.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Household Annual Income</p>
+                  <p><strong>{{ content.field_household_annual_income.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Tax Filing Status</p>
+                  <p><strong>{{ content.field_tax_filing_status.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Job/Occupation</p>
+                  <p><strong>{{ content.field_occupation.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Company Name</p>
+                  <p><strong>{{ content.field_company_name.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>EIN #</p>
+                  <p><strong>{{ content.field_ein.0 }}</strong></p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="col">
+              <div class="info-set">
+                <h3>Contact Info</h3>
+
+                {% if content.field_phone_home|render %}
+                <div class="info-set-item">
+                  <p>Phone Number <span>Home</span></p>
+                  <p><strong>{{ content.field_phone_home.0 }}</strong></p>
+                </div>
+                {% endif %}
+                {% if content.field_phone_mobile|render %}
+                <div class="info-set-item">
+                  <p>Phone Number <span>Mobile</span></p>
+                  <p><strong>{{ content.field_phone_mobile.0 }}</strong></p>
+                </div>
+                {% endif %}
+                {% if content.field_phone_work|render %}
+                <div class="info-set-item">
+                  <p>Phone Number <span>Work</span></p>
+                  <p><strong>{{ content.field_phone_work.0 }}</strong></p>
+                </div>
+                {% endif %}
+
+                <div class="info-set-item">
+                  <p>Email Adress</p>
+                  <p><strong>{{ content.field_email_address.0 }}</strong></p>
+                </div>
+
+              </div>
+
+              <div class="info-set">
+                <h3>Home Address</h3>
+
+                <div class="info-set-item">
+                  <p>Street</p>
+                  <p><strong>{{ content.field_street.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>City</p>
+                  <p><strong>{{ content.field_city.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>State</p>
+                  <p><strong>{{ content.field_state.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Zipcode</p>
+                  <p><strong>{{ content.field_zipcode.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>County</p>
+                  <p><strong>{{ content.field_county.0 }}</strong></p>
+                </div>
+              </div>
+
+              {% if 'Off' in content.field_same_as_mailing_address[0] %}
+                <div class="info-set">
+                  <h3>Mailing Address</h3>
+                  <div class="info-set-item">
+                    <p>Street <span>Mailing</span></p>
+                    <p><strong>{{ content.field_mailing_street.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>City <span>Mailing</span></p>
+                    <p><strong>{{ content.field_mailing_city.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>State <span>Mailing</span></p>
+                    <p><strong>{{ content.field_mailing_state.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Zipcode <span>Mailing</span></p>
+                    <p><strong>{{ content.field_mailing_zipcode.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>County <span>Mailing</span></p>
+                    <p><strong>{{ content.field_mailing_county.0 }}</strong></p>
+                  </div>
+                </div>
+              {% endif %}
+
+            </div>
+          </div>
+        </div>
+
+        {% if 'Health' in content.field_insurance_type[0] or 'Health' in content.field_insurance_type[1] or 'Health' in content.field_insurance_type[2] %}
+        <div id="tab2" class="tab-item">
+          <h2 class="tab-title">Health Insurance</h2>
+
+          <div class="col-6">
+            <div class="col">
+              <div class="info-set">
+                <h3>Insurance Details</h3>
+
+                <div class="info-set-item">
+                  <p>Status</p>
+                  <p><strong>{{ content.field_health_insurance_status.0 }}</strong></p>
+                </div>
+
+                {% if 'Inactive' in content.field_health_insurance_status[0] %}
+                  <div class="info-set-item">
+                    <p>Reason for Inactivity</p>
+                    <p><strong>{{ content.field_health_inactive_reason.0 }}</strong></p>
+                  </div>
+                  <div class="info-set-item">
+                    <p>Date of Cancellation</p>
+                    <p><strong>{{ content.field_health_cancel_date.0 }}</strong></p>
+                  </div>
+                {% endif %}
+              </div>
+
+            </div>
+          </div>
+
+          <div class="clear"></div>
+
+
+          {% if 'IFP' in content.field_health_insurance[0] %}
+          <style>
+            #col-ifp{ opacity: 1; }
+            #col-medicare{ opacity: .2; }
+          </style>
+          {% elseif 'Medicare' in content.field_health_insurance[0] %}
+          <style>
+            #col-ifp{ opacity: .2; }
+            #col-medicare{ opacity: 1; }
+          </style>
+          {% else %}
+          <style>
+            #col-ifp{ opacity: .2; }
+            #col-medicare{ opacity: .2; }
+          </style>
+          {% endif %}
+
+
+          <div id="col-ifp" class="col-6">
+            <div class="col">
+              <div class="info-set">
+                <h3>Individual Family Plan (IFP)</h3>
+
+                <div class="info-set-item">
+                  <p>IFP Category</p>
+                  <p><strong>{{ content.field_ifp_category.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Individual Family Plan</p>
+                  <p><strong>{{ content.field_ifp.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Metal Tier</p>
+                  <p><strong>{{ content.field_metal_tier.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Previous Coverage</p>
+                  <p><strong>{{ content.field_ifp_previous_coverage.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Effective Date</p>
+                  <p><strong>{{ content.field_ifp_effective_date.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Gross Monthly Premium</p>
+                  <p><strong>{{ content.field_gross_monthly_premium.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Net Monthly Premium</p>
+                  <p><strong>{{ content.field_net_monthly_premium.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Premium Assistance</p>
+                  <p><strong>{{ content.field_premium_assistance.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Dental Plan</p>
+                  <p><strong>{{ content.field_dental_plan.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Dental Monthly Premium</p>
+                  <p><strong>{{ content.field_dental_monthly_premium.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Vision Plan</p>
+                  <p><strong>{{ content.field_vision_plan.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Vision Monthly Premium</p>
+                  <p><strong>{{ content.field_vision_monthly_premium.0 }}</strong></p>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+          <div id="col-medicare" class="col-6">
+            <div class="col">
+              <div class="info-set">
+                <h3>Medicare</h3>
+
+                <div class="info-set-item">
+                  <p>Health Plan</p>
+                  <p><strong>{{ content.field_medicare_health_plan.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Medical Group</p>
+                  <p><strong>{{ content.field_medical_group.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Personal Care Physician (PCP)</p>
+                  <p><strong>{{ content.field_pcp.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Previous Coverage</p>
+                  <p><strong>{{ content.field_previous_coverage	.0 }}</strong></p>
+                </div>
+
+                <div class="info-set-item">
+                  <p>Effective Date</p>
+                  <p><strong>{{ content.field_medicare_effective_date.0 }}</strong></p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-7">
+            <div class="info-set">
+              <h3>{{ content.field_health_commissions_year.0 }} Health Commissions</h3>
+              <table class="commissions">
+                <thead>
+                  <tr>
+                    <th>Month</th>
+                    <th>Health</th>
+                    <th>Dental</th>
+                    <th>Vision</th>
+                  <tr/>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="commission-months">
+                      <div class="info-set-item"><p>January</p></div>
+                      <div class="info-set-item"><p>February</p></div>
+                      <div class="info-set-item"><p>March</p></div>
+                      <div class="info-set-item"><p>April</p></div>
+                      <div class="info-set-item"><p>May</p></div>
+                      <div class="info-set-item"><p>June</p></div>
+                      <div class="info-set-item"><p>July</p></div>
+                      <div class="info-set-item"><p>August</p></div>
+                      <div class="info-set-item"><p>September</p></div>
+                      <div class="info-set-item"><p>October</p></div>
+                      <div class="info-set-item"><p>November</p></div>
+                      <div class="info-set-item"><p>December</p></div>
+                      <div class="info-set-item"><p>Bonus</p></div>
+                      <div class="info-set-item commissions-total"><p><strong>Total</strong></p></div>
+                    </td>
+                    <td class="health-commissions">{{ content.field_health_commissions.0 }}</td>
+                    <td class="dental-commissions">{{ content.field_dental_commissions.0 }}</td>
+                    <td class="vision-commissions">{{ content.field_vision_commissions.0 }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if 'Life' in content.field_insurance_type[0] or 'Life' in content.field_insurance_type[1] or 'Life' in content.field_insurance_type[2] %}
+        <div id="tab3" class="tab-item">
+          <h2 class="tab-title">Life Insurance</h2>
+
+          <div>
+            <div class="col-5">
+              <div class="col">
+                <div class="info-set">
+                  <h3>Insurance Details</h3>
+                  <div class="info-set-item">
+                    <p>Agency</p>
+                    <p><strong>{{ content.field_agency.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Carrier</p>
+                    <p><strong>{{ content.field_life_carrier.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Product Type</p>
+                    <p><strong>{{ content.field_life_product_type.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Product Term</p>
+                    <p><strong>{{ content.field_life_product_term.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Product</p>
+                    <p><strong>{{ content.field_life_product.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Policy Number</p>
+                    <p><strong>{{ content.field_policy_number.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Face Amount</p>
+                    <p><strong>{{ content.field_life_face_amount.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Total Death Benefit</p>
+                    <p><strong>{{ content.field_total_death_benefit.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Monthly Premium</p>
+                    <p><strong>{{ content.field_life_monthly_premium.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Effective Date</p>
+                    <p><strong>{{ content.field_life_effective_date.0 }}</strong></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-7">
+              <div class="col">
+                <div class="info-set">
+                  <h3>{{ content.field_life_commissions_year.0 }} Life Commissions</h3>
+                  <table class="commissions">
+                    <thead>
+                      <tr>
+                        <th>Month</th>
+                        <th>Life</th>
+                        <th>Renewal</th>
+                        <th>Override</th>
+                      <tr/>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="commission-months">
+                          <div class="info-set-item"><p>January</p></div>
+                          <div class="info-set-item"><p>February</p></div>
+                          <div class="info-set-item"><p>March</p></div>
+                          <div class="info-set-item"><p>April</p></div>
+                          <div class="info-set-item"><p>May</p></div>
+                          <div class="info-set-item"><p>June</p></div>
+                          <div class="info-set-item"><p>July</p></div>
+                          <div class="info-set-item"><p>August</p></div>
+                          <div class="info-set-item"><p>September</p></div>
+                          <div class="info-set-item"><p>October</p></div>
+                          <div class="info-set-item"><p>November</p></div>
+                          <div class="info-set-item"><p>December</p></div>
+                          <div class="info-set-item"><p>Bonus</p></div>
+                          <div class="info-set-item commissions-total"><p><strong>Total</strong></p></div>
+                        </td>
+                        <td class="life-commissions">{{ content.field_life_commissions.0 }}</td>
+                        <td class="life-renewal">{{ content.field_life_renewal.0 }}</td>
+                        <td class="life-override">{{ content.field_life_override.0 }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if 'Annuity' in content.field_insurance_type[0] or 'Annuity' in content.field_insurance_type[1] or 'Annuity' in content.field_insurance_type[2] %}
+        <div id="tab4" class="tab-item">
+          <h2 class="tab-title">Annuity Plan</h2>
+
+          <div>
+            <div class="col-6">
+              <div class="col">
+                <div class="info-set">
+                  <h3>Insurance Details</h3>
+
+                  <div class="info-set-item">
+                    <p>Carrier</p>
+                    <p><strong>{{ content.field_annuity_carrier.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Product</p>
+                    <p><strong>{{ content.field_annuity_product.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Initial Commission</p>
+                    <p><strong>{{ content.field_initial_commission.0 }}</strong></p>
+                  </div>
+
+                  <div class="info-set-item">
+                    <p>Effective Date</p>
+                    <p><strong>{{ content.field_annuity_effective_date.0 }}</strong></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="col">
+                <div class="info-set">
+                  <h3>{{ content.field_annuity_commissions_year.0 }} Annuity Commissions</h3>
+                  <table class="commissions">
+                    <thead>
+                      <tr>
+                        <th>Month</th>
+                        <th>Annuity</th>
+                      <tr/>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="commission-months">
+                          <div class="info-set-item"><p>January</p></div>
+                          <div class="info-set-item"><p>February</p></div>
+                          <div class="info-set-item"><p>March</p></div>
+                          <div class="info-set-item"><p>April</p></div>
+                          <div class="info-set-item"><p>May</p></div>
+                          <div class="info-set-item"><p>June</p></div>
+                          <div class="info-set-item"><p>July</p></div>
+                          <div class="info-set-item"><p>August</p></div>
+                          <div class="info-set-item"><p>September</p></div>
+                          <div class="info-set-item"><p>October</p></div>
+                          <div class="info-set-item"><p>November</p></div>
+                          <div class="info-set-item"><p>December</p></div>
+                          <div class="info-set-item"><p>Bonus</p></div>
+                          <div class="info-set-item commissions-total"><p><strong>Total</strong></p></div>
+                        </td>
+                        <td class="annuity-commissions">{{ content.field_annuity_commissions.0 }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</div>

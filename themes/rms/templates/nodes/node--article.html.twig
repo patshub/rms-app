@@ -1,0 +1,19 @@
+<div class="col-8 left main-content">
+  <h1>
+    {{ node.label }}
+    <p class="meta">Posted: {{ created }}  |  Category: {{ content.field_category.0 }} </p>
+  </h1>
+  <img class="headline-separator" src="/themes/tahoe/_assets/images/headline-separator.svg"/>
+
+  {{ content.body }}
+  <br/>
+
+	{% if content.field_image|render %}
+	<img class="field_image" src="{{ content.field_image.0 }}"/>
+	{% endif %}
+
+  {{ content.comment }}
+</div>
+
+
+{% include '@tahoe/partials/node_sidebar.html.twig' %}

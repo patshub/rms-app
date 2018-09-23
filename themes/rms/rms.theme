@@ -1,0 +1,100 @@
+<?php
+
+// function rms_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+//   $form['keys']['#attributes']['title'] = t('Search'); //Adds a mousehover title to input box
+//   $form['keys']['#attributes']['placeholder'] = t('Search'); // Adds a placeholder
+//   $form['actions']['submit']['#value'] = html_entity_decode('&#xf002;'); // Change the text on the submit button to search icon
+//   $form['actions']['submit']['#attributes']['class'][] = 'search-button';
+// }
+
+// Allows us to use block templates like in D7
+use Drupal\block\Entity\Block;
+function rms_theme_suggestions_block_alter(array &$suggestions, array   $variables) {
+
+  if (!empty($variables['elements']['#id'])) {
+    $block = Block::load($variables['elements']['#id']);
+    $suggestions[] = 'block__' . $block->getRegion();
+    $suggestions[] = 'block__' . $block->getRegion() . '__' . $variables['elements']['#id'];
+  } else if (isset($variables['elements']['#configuration']['region'])) {
+    $suggestions[] = 'block__page_' . $variables['elements']['#configuration']['region'];
+    $suggestions[] = 'block__page_' . $variables['elements']['#configuration']['region'] . '__' . end(explode(':', $variables['elements']['#plugin_id']));
+  }
+  return $suggestions;
+}
+
+function rms_preprocess_page(&$variables) {
+  $variables['theme_path'] = base_path() . $variables['directory'];
+}
+function rms_preprocess_views_view(&$variables) {
+  $variables['theme_path'] = base_path() . $variables['directory'];
+}
+function rms_preprocess_views_exposed_form(&$variables) {
+  $variables['theme_path'] = base_path() . $variables['directory'];
+}
+/**
+* Implements hook_preprocess_node() for NODE document templates.
+*/
+
+function rms_preprocess_node(&$variables) {
+  // Allowed view modes
+  $view_mode = $variables['view_mode']; // Retrieve view mode
+  $allowed_view_modes = ['full']; // Array of allowed view modes (for performance so as to not execute on unneeded nodes)
+
+  // If view mode is in allowed view modes list, pass to THEME_add_regions_to_node()
+  if(in_array($view_mode, $allowed_view_modes)) {
+    // Allowed regions (for performance so as to not execute for unneeded region)
+    $allowed_regions = ['dept_news'];
+    rms_add_regions_to_node($allowed_regions, $variables);
+    $allowed_regions = ['dept_events'];
+    rms_add_regions_to_node($allowed_regions, $variables);
+    $allowed_regions = ['sidebar'];
+    rms_add_regions_to_node($allowed_regions, $variables);
+  }
+
+  $date = $variables['node']->getCreatedTime();
+  // Here you can use drupal's format_date() function, or some custom PHP date formatting.
+  $variables['created'] = \Drupal::service('date.formatter')->format($date, 'article');// enter date format in $format.
+
+
+  if (isset($variables['content']['field_event_date'])) {
+    $date = $variables['node']->get('field_event_date')->first()->getValue()['value'];
+    $date = new DateTime($date);
+    $date = $date->getTimestamp();
+    $variables['event_date'] = $date;
+  }
+
+  $variables['theme_path'] = base_path() . $variables['directory'];
+}
+
+
+function rms_add_regions_to_node($allowed_regions, &$variables) {
+  // Retrieve active theme
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+
+  // Retrieve theme regions
+  $available_regions = system_region_list($theme, 'REGIONS_ALL');
+
+  // Validate allowed regions with available regions
+  $regions = array_intersect(array_keys($available_regions), $allowed_regions);
+
+  // For each region
+  foreach ($regions as $key => $region) {
+
+    // Load region blocks
+    $blocks = entity_load_multiple_by_properties('block', array('theme' => $theme, 'region' => $region));
+
+    // Sort ‘em
+    uasort($blocks, 'Drupal\block\Entity\Block::sort');
+
+    // Capture viewable blocks and their settings to $build
+    $build = array();
+    foreach ($blocks as $key => $block) {
+      if ($block->access('view')) {
+        $build[$key] = entity_view($block, 'block');
+      }
+    }
+
+    // Add build to region
+    $variables[$region] = $build;
+  }
+}

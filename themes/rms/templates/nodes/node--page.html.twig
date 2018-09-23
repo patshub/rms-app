@@ -1,0 +1,16 @@
+<div class="col-8 left main-content">
+  <h1>
+    {{ node.label }}
+  </h1>
+  <img class="headline-separator" src="/themes/tahoe/_assets/images/headline-separator.svg"/>
+  {{ content.body }}
+
+  <br/>
+
+	{% if content.field_image|render %}
+	<img class="field_image" src="{{ content.field_image.0 }}"/>
+	{% endif %}
+
+</div>
+
+{% include '@tahoe/partials/node_sidebar.html.twig' %}

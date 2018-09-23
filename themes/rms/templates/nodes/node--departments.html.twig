@@ -1,0 +1,35 @@
+
+
+<div class="col-8 left">
+	<h1>
+		{{ node.label }}
+	</h1>
+	{% if content.body is not empty %}
+		<p> {{ content.body }} </p>
+	{% endif %}
+
+	{% if content.field_button_label is not empty or content.field_button_url is not empty %}
+		<a  href="{{ content.field_button_url.0 }}" class="btn">{{ content.field_button_label.0 }}</a>
+		<br/><br/>
+	{% endif %}
+
+	{% if content.field_image is not empty %}
+		<img class="field_image" src="{{ content.field_image.0 }}"/>
+	{% endif %}
+
+	{% if content.field_department_content_blocks is not empty %}
+		<div class="department-highlights">
+			<h2 class="section-title">{{ content.field_content_block_title.0 }}</h2>
+			{{ content.field_department_content_blocks }}
+			<div class="clear"></div>
+		</div>
+	{% endif %}
+
+	<h2 class="section-title">Upcoming Events</h2>
+	<div class="dept-events">
+		{{ dept_events }}
+	</div>
+
+</div>
+
+{% include '@tahoe/partials/node_sidebar.html.twig' %}

@@ -1,0 +1,67 @@
+
+<div class="{{ classes }}">
+    {{ title_prefix }}
+    {% if title|render %}
+        {{ title }}
+    {% endif %}
+    {{ title_suffix }}
+    {% if header|render %}
+        <div class="view-header">
+        {{ header }}
+        </div>
+    {% endif %}
+
+    {% if exposed|render %}
+        <div class="view-filters">
+        {{ exposed }}
+        </div>
+    {% endif %}
+
+    {% if attachment_before|render %}
+        <div class="attachment attachment-before">
+          {{ attachment_before }}
+        </div>
+    {% endif %}
+
+    {% if rows|render %}
+        <div class="view-content">
+          <div class="info-block-4 department-landing-page no-top-padding">
+            {{ rows }}
+            <div class="clear"></div>
+          </div>
+        </div>
+    {% elseif empty|render %}
+        <div class="view-empty">
+          {{ empty }}
+        </div>
+    {% endif %}
+
+    {% if pager|render %}
+        <div class="item-list-bottom">
+            {{ pager }}
+        </div>
+    {% endif %}
+
+    {% if attachment_after|render %}
+        <div class="attachment attachment-after">
+          {{ attachment_after }}
+        </div>
+    {% endif %}
+
+    {% if more|render %}
+        {{ more }}
+    {% endif %}
+
+    {% if footer|render %}
+        <div class="view-footer">
+          {{ footer }}
+        </div>
+    {% endif %}
+
+    {% if feed_icon|render %}
+        <div class="feed-icon">
+            {{ feed_icon }}
+        </div>
+    {% endif %}
+
+</div>
